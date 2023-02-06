@@ -1,4 +1,5 @@
-[
+{
+  "Data": [
     {
       "BundleID": "10610",
       "BundleName": "Atea Sverige Internt",
@@ -59153,3 +59154,4 @@
       "Order": "UUID"
     }
   ]
+}
