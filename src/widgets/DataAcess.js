@@ -7,8 +7,11 @@ export function getTotalNumberOfAssets(date) {
         return data["Data"].length;
     }
     let total = 0;
+
+    var dateObject = new Date(date).setHours(0, 0, 0, 0)
+
     data["Data"].forEach(d => {
-        if (d === date) total++;
+        if (new Date(d.OrderDate).setHours(0, 0, 0, 0) === dateObject) total++;
     });
     return total;
 }
