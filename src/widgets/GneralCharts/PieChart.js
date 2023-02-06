@@ -4,7 +4,7 @@
 import React from 'react';
 import Webix from '../../Webix';
 
-function chart(title, dataset) {
+export function pieChartOption(title, dataset) {
     return {
         rows: [
             {
@@ -40,7 +40,7 @@ function chart(title, dataset) {
 
 const PieChart = ({ title, dataset }) => (
     <div>
-        <Webix ui={chart(title, dataset)} />
+        <Webix ui={pieChartOption(title, dataset)} />
     </div>
 )
 export default PieChart;

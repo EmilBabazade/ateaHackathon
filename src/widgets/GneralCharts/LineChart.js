@@ -4,7 +4,7 @@
 import React from 'react';
 import Webix from '../../Webix';
 
-function chart(title, dataset) {
+export function lineChartOptions(title, dataset) {
     return {
         rows: [
             {
@@ -53,7 +53,7 @@ function chart(title, dataset) {
 
 const LineChart = ({ title, dataset }) => (
     <div>
-        <Webix ui={chart(title, dataset)} />
+        <Webix ui={lineChartOptions(title, dataset)} />
     </div>
 )
 export default LineChart;
