@@ -3,27 +3,36 @@
 
 import React from 'react';
 import Webix from './Webix';
+import TotalNumberOfAssetsLineChart from './widgets/TotalNumberOfAssets/TotalNumberOfAssetsLineChart';
+import TotalNumberOfAssetsBarChart from './widgets/TotalNumberOfAssets/TotalNumberOfAssetsBarChart';
+import TotalNumberOfAssetsPieChart from './widgets/TotalNumberOfAssets/TotalNumberOfAssetsPieChart';
 
-
-function getForm(save){
+function getForm(save) {
   return {
-    view:"form", width:400, elements:[
-      { view:"text", name:"name", label:"Name", placeholder:"Type your full name here"},
-      { view:"text", name:"email", label:"Email"},
-      { view:"slider", name:"age", label:"Age", value:"25"},
-      { cols:[
-        {}, { view:"button", value:"Save", click:function(){
-          if (save)
-            save(this.getFormView().getValues());
-        }}
-      ]}
+    view: "form", width: 400, elements: [
+      { view: "text", name: "name", label: "Name", placeholder: "Type your full name here" },
+      { view: "text", name: "email", label: "Email" },
+      { view: "slider", name: "age", label: "Age", value: "25" },
+      {
+        cols: [
+          {}, {
+            view: "button", value: "Save", click: function () {
+              if (save)
+                save(this.getFormView().getValues());
+            }
+          }
+        ]
+      }
     ]
   };
 }
 
 const FormView = ({ data, save }) => (
   <div>
-    <Webix ui={getForm(save)} data={data}/>
+    {/* <Webix ui={getForm(save)} data={data}/> */}
+    <TotalNumberOfAssetsLineChart />
+    <TotalNumberOfAssetsBarChart />
+    <TotalNumberOfAssetsPieChart />
   </div>
 )
 export default FormView;
