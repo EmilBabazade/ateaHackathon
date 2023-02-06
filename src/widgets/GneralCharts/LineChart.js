@@ -4,7 +4,7 @@
 import React from 'react';
 import Webix from '../../Webix';
 
-function chart(title, dataset) {
+export function lineChartOptions(title, dataset) {
     return {
         rows: [
             {
@@ -14,19 +14,19 @@ function chart(title, dataset) {
             },
             {
                 view: "select",
-                label: "X-axis",
+                label: "Year",
                 value: 1,
                 options: [
-                    {"id": 1, "value": "Year"},
-                    {"id": 2, "value": "Month"},
-                    {"id": 3, "value": "Day"}
+                    { "id": 1, "value": "Year" },
+                    { "id": 2, "value": "Month" },
+                    { "id": 3, "value": "Day" }
                 ]
             },
             {
                 view: "chart",
                 type: "line",
-                height: 300,
-                width: 470,
+                width: 600,
+                height: 250,
                 value: "#sales#",
                 gradient: "falling",
                 color: "#b9a8f9",
@@ -51,15 +51,9 @@ function chart(title, dataset) {
     };
 }
 
-const LineChart = ({title, dataset}) => {
-    const options = chart(title, dataset);
-
-    console.log(options);
-
-    return (
-        <div>
-            <Webix ui={options}/>
-        </div>
-    )
-}
+const LineChart = ({ title, dataset }) => (
+    <div>
+        <Webix ui={lineChartOptions(title, dataset)} />
+    </div>
+)
 export default LineChart;
