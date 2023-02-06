@@ -35,8 +35,8 @@ export function barChartOptionWithSelection(title, dataset) {
             },
             {
                 view: "chart",
-                width: 900,
-                height: 250,
+                height: 300,
+                width: 470,
                 type: "bar",
                 barWidth: 60,
                 radius: 2,

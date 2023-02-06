@@ -14,7 +14,7 @@ export function pieChartOption(title, dataset) {
             },
             {
                 height: 300,
-                width: 800,
+                width: 470,
                 view: "chart",
                 type: "pie",
                 value: "#sales#",

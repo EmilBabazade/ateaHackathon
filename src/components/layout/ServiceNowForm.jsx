@@ -1,5 +1,6 @@
 import React from "react";
-import {Box, Divider, Grid, makeStyles, TextareaAutosize, TextField, Typography} from "@material-ui/core";
+import {Box, Button, Divider, Grid, makeStyles, TextareaAutosize, TextField, Typography} from "@material-ui/core";
+import {Email} from "@material-ui/icons";
 
 const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
@@ -86,11 +87,20 @@ export function ServiceNowForm(props) {
                                 <Grid xs={12}>
                                     <TextareaAutosize variant={"outlined"}
                                                       name={"description"}
-                                               className={"large-textfield"}
-                                               label={"Problem Description"}
-                                               minRows={15}>
+                                                      className={"large-textfield"}
+                                                      label={"Problem Description"}
+                                                      minRows={15}>
 
                                     </TextareaAutosize>
+                                </Grid>
+                                <Grid xs={12}>
+                                    <Box width={"100%"} display={"flex"}
+                                         color={"secondary"}
+                                         alignItems={"center"} justifyContent={"flex-end"}>
+                                        <Button variant={"outlined"} startIcon={<Email/>}>
+                                            {"Send"}
+                                        </Button>
+                                    </Box>
                                 </Grid>
                             </Grid>
                         </Box>

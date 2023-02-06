@@ -3,6 +3,9 @@ import {Box, Card, CardContent, makeStyles, Typography} from "@material-ui/core"
 import TotalNumberOfAssetsLineChart from "../../widgets/TotalNumberOfAssets/TotalNumberOfAssetsLineChart";
 import TotalNumberOfAssetsBarChart from "../../widgets/TotalNumberOfAssets/TotalNumberOfAssetsBarChart";
 import TotalNumberOfAssetsPieChart from "../../widgets/TotalNumberOfAssets/TotalNumberOfAssetsPieChart";
+import BarChartWithSelection from "../../widgets/GneralCharts/BarChartWithSelection";
+import TotalNumberOfAssetsWithoutSerialNumberPieChart from "../../widgets/TotalNumberOfAssets/TotalNumberOfAssetsWithoutSerialNumberPieChart";
+import TotalNuberOfActiveAssetsBarChart from "../../widgets/TotalNumberOfAssets/TotalNuberOfActiveAssetsBarChart";
 
 const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
@@ -49,6 +52,16 @@ export function Dashboard(props) {
                     </Card>
                     <Card className={"chart-area"}>
                         <CardContent>
+                            <TotalNumberOfAssetsWithoutSerialNumberPieChart/>
+                        </CardContent>
+                    </Card>
+                    <Card className={"chart-area"}>
+                        <CardContent>
+                            <TotalNuberOfActiveAssetsBarChart/>
+                        </CardContent>
+                    </Card>
+                    {/*<Card className={"chart-area"}>
+                        <CardContent>
                             <TotalNumberOfAssetsBarChart/>
                         </CardContent>
                     </Card>
@@ -63,6 +76,7 @@ export function Dashboard(props) {
                         </CardContent>
                     </Card>
                 >
+                */}
                 </Box>
             </Box>
         </Box>
