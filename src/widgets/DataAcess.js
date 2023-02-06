@@ -1,8 +1,8 @@
-import data from '../../assets 2023-01-09.json';
+import dataArray from '../../assets 2023-01-09.json';
 
 
 export function getTotalNumberOfAssets(date) {
-    const data = JSON.parse(data);
+    const data = JSON.parse(JSON.stringify(dataArray));
     if (!date) {
         return data["Data"].length;
     }
@@ -13,59 +13,110 @@ export function getTotalNumberOfAssets(date) {
     return total;
 }
 
-function getAssetsWithoutSerialNumber() {
-
+export function getTotalActiveAssets() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let totalActiveAssets = 0;
+    data["Data"].forEach(d => {
+        if (d.Status === "4" || d.Status === "6" || d.Status === "7" || d.Status === "9" 
+        || d.Status === "10" || d.Status === "13" || d.Status === "16") totalActiveAssets++;
+    });
+    return totalActiveAssets;
 }
 
-function getTotalActiveAssets() {
-
+export function getTotalInstalledAssets() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let totalInstalledAssets = 0;
+    data["Data"].forEach(d => {
+        if (d.Status === "7") totalInstalledAssets++;
+    });
+    return totalInstalledAssets;
 }
 
-function getTotalInstalledAssets() {
-
+export function getTotalStolenAssets() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let totalStolenAssets = 0;
+    data["Data"].forEach(d => {
+        if (d.Status === "14") totalStolenAssets++;
+    });
+    return totalStolenAssets;
 }
 
-function getTotalStolenAssets() {
-
+export function getTotalScrappedAssets() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let totalScrappedAssets = 0;
+    data["Data"].forEach(d => {
+        if (d.Status === "17") totalScrappedAssets++;
+    });
+    return totalScrappedAssets;
 }
 
-function getTotalScrappedAssets() {
-
+export function getTotalReSoldAssets() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let totalReSoldAssets = 0;
+    data["Data"].forEach(d => {
+        if (d.Status === "25") totalReSoldAssets++;
+    });
+    return totalReSoldAssets;
 }
 
-function getTotalReSoldAssets() {
-
+export function getTotalAssetsonStock() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let totalAssetsonStock = 0;
+    data["Data"].forEach(d => {
+        if (d.Status === "16") totalAssetsonStock++;
+    });
+    return totalAssetsonStock;
 }
 
-function getTotalAssetsonStock() {
-
+export function getTotalDecomissionedDevices() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let totalDecomissionedDevices = 0;
+    data["Data"].forEach(d => {
+        if (d.Status === "21") totalDecomissionedDevices++;
+    });
+    return totalDecomissionedDevices;
 }
 
-function getTotalDeletedAssets() {
-
+export function getTotalFinanceCost() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let totalFinanceCost = 0;
+    data["Data"].forEach(d => {
+        if ((d.Status === "4" || d.Status === "6" || d.Status === "7" || d.Status === "9" 
+        || d.Status === "10" || d.Status === "13" || d.Status === "16") && parseFloat(d.LeaseCost) > 0)
+        totalFinanceCost += parseFloat(d.LeaseCost);
+    });
+    return totalFinanceCost;
 }
 
-function getTotalDecomissionedDevices() {
-
+export function getTotalAssetsWithoutWarranty() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let totalAssetsWithoutWarranty = 0;
+    data["Data"].forEach(d => {
+        if ((d.Status === "4" || d.Status === "6" || d.Status === "7" || d.Status === "9" 
+        || d.Status === "10" || d.Status === "13" || d.Status === "16") && d.Warranty === "NULL")
+        totalAssetsWithoutWarranty ++;
+    });
+    return totalAssetsWithoutWarranty;
 }
 
-function getTotalTotalFinanceCost() {
-
+export function getTotalAssetsWithoutWarrantyPercentage() {
+    return getTotalAssetsWithoutWarranty() / getTotalActiveAssets() * 100;;
 }
 
-function getTotalNumberOfUsers() {
-
+export function getAssetsWithoutSerialNumber() {
+    const data = JSON.parse(JSON.stringify(dataArray));
+    let assetsWithoutSerialNumber = 0;
+    data["Data"].forEach(d => {
+        if ((d.Status === "4" || d.Status === "6" || d.Status === "7" || d.Status === "9" 
+        || d.Status === "10" || d.Status === "13" || d.Status === "16") && d.SerialNo === undefined) assetsWithoutSerialNumber++;
+    });
+    return assetsWithoutSerialNumber;
 }
 
-
-function getTotalAssetsWithoutWarranty() {
-
+export function getTotalDeletedAssets() {
+    return getTotalScrappedAssets();
 }
 
-function getTotalAssetsWithoutWarrantyPercentage() {
-
-}
-
-function getTotalNumberOfUsers() {
-
+export function getTotalNumberOfUsers() {
+    
 }
