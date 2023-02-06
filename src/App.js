@@ -5,7 +5,7 @@ import Home from './Home';
 import FormView from './FormView';
 import ReactAsView from './ReactAsView';
 import ReduxAppView from './redux/ReduxAppView';
-import {AppBar, Box, CssBaseline, makeStyles, ThemeProvider, Toolbar} from "@material-ui/core";
+import {AppBar, Box, CssBaseline, List, ListItem, makeStyles, ThemeProvider, Toolbar} from "@material-ui/core";
 import './assets/App.css';
 import {Layout} from "./components/layout/Layout";
 import {getTheme} from "./components/configuration/themeConfig";
@@ -41,7 +41,8 @@ const App = () => {
             borderBottom: "1px solid grey",
             color: theme.palette.secondary.main,
             height: "100px"
-        }
+        },
+        sidebar: {}
     }));
 
 
@@ -66,15 +67,14 @@ const App = () => {
                         <Router>
                             <Box>
                                 <div className='content-box'>
-                                    <div className='menu'>
-                                        <ul>
-                                            <li><NavLink to="/" exact activeClassName='active'>Home</NavLink></li>
-                                            <li><NavLink to="/webix" activeClassName='active'>Webix Component</NavLink></li>
-                                            <li><NavLink to="/custom" activeClassName='active'>Custom Component</NavLink></li>
-                                            <li><NavLink to="/data" activeClassName='active'>Redux + Webix</NavLink></li>
-                                            <li><NavLink to="/view" activeClassName='active'>React as Webix view</NavLink></li>
-                                        </ul>
-                                    </div>
+                                    <List className={"menu"}>
+                                        <ListItem>
+                                            <NavLink to="/" exact activeClassName='active'>Home</NavLink>
+                                        </ListItem>
+                                        <ListItem>
+                                            <NavLink to="/webix" activeClassName='active'>Webix Component</NavLink><
+                                            /ListItem>
+                                    </List>
                                     <div className='content'>
                                         <Route exact path="/" component={Dashboard}/>
                                         <Route path="/webix" component={FormView}/>

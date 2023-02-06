@@ -21,7 +21,7 @@ export function Dashboard(props) {
 
     return (
         <Box p={2} className={`dashboard-container ${classes.dashboard}`}>
-            <Typography variant={"h2"}>
+            <Typography variant={"h4"} color={"secondary"}>
                 {"Overview"}
             </Typography>
             <Box display={"flex"} alignItems={"flex-start"} justifyContent={"center"}>
