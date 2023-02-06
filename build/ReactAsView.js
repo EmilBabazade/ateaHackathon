@@ -1,0 +1,34 @@
+import { jsx as _jsx } from "react/jsx-runtime";
+// example of custom component with Webix UI inside
+// this one is a static view, not linked to the React data store
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Webix from './Webix';
+import FormView from './FormView';
+import * as webix from 'webix/webix.js';
+webix.protoUI({
+    name: "react",
+    defaults: {
+        borderless: true
+    },
+    $init: function (config) {
+        this.$ready.push(function () {
+            ReactDOM.render(this.config.app, this.$view);
+        });
+    }
+}, webix.ui.view);
+function getForm() {
+    var subApp = _jsx(FormView, {});
+    return {
+        view: "form", width: 500, elements: [
+            { view: "text", name: "Company", label: "Name", placeholder: "Type your full name here" },
+            { type: "header", template: "Owner", css: "webix_dark" },
+            {
+                view: "react", height: 220, app: subApp
+            },
+            { view: "label", label: "the above form is a separate React App inside of Webix UI" }
+        ]
+    };
+}
+const ReactAsView = ({ data, save }) => (_jsx("div", { children: _jsx(Webix, { ui: getForm(), data: data }) }));
+export default ReactAsView;

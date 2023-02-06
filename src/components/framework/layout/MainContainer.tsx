@@ -1,7 +1,7 @@
 ﻿import * as React from 'react';
 import classNames from "classnames";
-import {LoadingIndicator} from "../../components/shared/LoadingIndicator";
 import {Container, ContainerProps, SxProps} from "@mui/material";
+import { LoadingIndicator } from '../../shared/LoadingIndicator';
 
 export interface MainContainerProps extends ContainerProps {
     fullWidthOnSm?: boolean,

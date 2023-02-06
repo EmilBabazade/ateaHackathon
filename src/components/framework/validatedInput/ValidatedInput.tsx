@@ -1,23 +1,12 @@
 import React from "react";
-import {ValidationErrors} from "pojo-validator";
-import {
-    Checkbox,
-    CheckboxProps,
-    FormControl,
-    FormControlLabel, FormControlProps,
-    FormHelperText, FormLabel,
-    InputLabel, MenuItem,
-    OutlinedInput, Radio, RadioGroup, RadioGroupProps, Select, SelectProps,
-} from "@mui/material";
+import {Checkbox, CheckboxProps, FormControl, FormControlLabel, FormHelperText, InputLabel, OutlinedInput, RadioGroupProps, Select, SelectProps,} from "@mui/material";
 import {OutlinedInputProps} from "@mui/material/OutlinedInput/OutlinedInput";
-import notEmpty from "../../shared/notEmpty";
 
 
 export interface ValidatedInputProps extends OutlinedInputProps {
     id?: string,
     name?: string,
     variant?: 'standard' | 'outlined' | 'filled',
-    validationErrors?: ValidationErrors | Array<string> | string | undefined | null,
     helpText?: string,
     hideFormFeedback?: boolean,
     append?: React.ReactNode,
@@ -31,7 +20,6 @@ export const ValidatedInput = (props: ValidatedInputProps) => {
     const {
         id,
         variant,
-        validationErrors,
         hideFormFeedback,
         fullWidth,
         label,
@@ -47,19 +35,6 @@ export const ValidatedInput = (props: ValidatedInputProps) => {
         ...rest
     } = props;
 
-
-    // Find the errors based on the types we support.
-    let errors: Array<string> = [];
-    if (!validationErrors) {
-        // Errors can stay as an empty array.
-    } else if (typeof validationErrors === 'string') {
-        errors = [validationErrors];
-    } else if (Array.isArray(validationErrors)) {
-        errors = validationErrors;
-    } else {
-        // We have ValidationErrors from Validator.errors()
-        errors = validationErrors[(props.name ? props.name : '')] || [];
-    }
 
     const shrinkLabel = !!rest.type && [
         "date",
@@ -80,7 +55,6 @@ export const ValidatedInput = (props: ValidatedInputProps) => {
                 label={props.label}
                 endAdornment={append}
                 startAdornment={prepend}
-                error={!!errors.length}
 
                 inputProps={{
                     step: step,
@@ -92,9 +66,6 @@ export const ValidatedInput = (props: ValidatedInputProps) => {
             {!!helpText && (
                 <FormHelperText>{helpText}</FormHelperText>
             )}
-            {!!errors.length && !hideFormFeedback && (
-                <FormHelperText error>{errors.join(',')}</FormHelperText>
-            )}
         </FormControl>
 
     );
@@ -102,7 +73,6 @@ export const ValidatedInput = (props: ValidatedInputProps) => {
 
 
 export interface ValidatedCheckBoxProps extends CheckboxProps {
-    validationErrors?: ValidationErrors | Array<string> | string | undefined | null,
     label?: string,
     helpText?: string,
     hideFormFeedback?: boolean,
@@ -111,7 +81,6 @@ export interface ValidatedCheckBoxProps extends CheckboxProps {
 
 export const ValidatedCheckBox = (props: ValidatedCheckBoxProps) => {
     const {
-        validationErrors,
         inputProps,
         required,
         label,
@@ -120,18 +89,6 @@ export const ValidatedCheckBox = (props: ValidatedCheckBoxProps) => {
         ...rest
     } = props;
 
-    // Find the errors based on the types we support.
-    let errors: Array<string> = [];
-    if (!validationErrors) {
-        // Errors can stay as an empty array.
-    } else if (typeof validationErrors === 'string') {
-        errors = [validationErrors];
-    } else if (Array.isArray(validationErrors)) {
-        errors = validationErrors;
-    } else {
-        // We have ValidationErrors from Validator.errors()
-        errors = validationErrors[(props.name ? props.name : '')] || [];
-    }
 
     return (
         <FormControl required={required} fullWidth margin={"dense"}>
@@ -140,9 +97,6 @@ export const ValidatedCheckBox = (props: ValidatedCheckBoxProps) => {
             {!!helpText && (
                 <FormHelperText>{helpText}</FormHelperText>
             )}
-            {!!errors.length && !hideFormFeedback && (
-                <FormHelperText error>{errors.join(',')}</FormHelperText>
-            )}
         </FormControl>
 
     );
@@ -150,7 +104,6 @@ export const ValidatedCheckBox = (props: ValidatedCheckBoxProps) => {
 
 
 export interface ValidatedRadioGroupProps extends RadioGroupProps {
-    validationErrors?: ValidationErrors | Array<string> | string | undefined | null,
     label?: string,
     values: Array<{value?: string | number, label: string}>
     helpText?: string,
@@ -159,53 +112,9 @@ export interface ValidatedRadioGroupProps extends RadioGroupProps {
 }
 
 
-export const ValidatedRadioGroup = (props: ValidatedRadioGroupProps) => {
-    const {
-        values,
-        validationErrors,
-        required,
-        defaultValue,
-        label,
-        helpText,
-        hideFormFeedback,
-        ...rest
-    } = props;
-
-    // Find the errors based on the types we support.
-    let errors: Array<string> = [];
-    if (!validationErrors) {
-        // Errors can stay as an empty array.
-    } else if (typeof validationErrors === 'string') {
-        errors = [validationErrors];
-    } else if (Array.isArray(validationErrors)) {
-        errors = validationErrors;
-    } else {
-        // We have ValidationErrors from Validator.errors()
-        errors = validationErrors[(props.name ? props.name : '')] || [];
-    }
-
-    return (
-        <FormControl required={required} fullWidth margin={"dense"}>
-            <FormLabel>{label}</FormLabel>
-            <RadioGroup defaultValue={defaultValue}  {...rest}>
-                {values?.filter(notEmpty)?.map(({value, label}, index) => (
-                    <FormControlLabel key={index} value={value} control={<Radio />} label={label} />
-                ))}
-            </RadioGroup>
-            {!!helpText && (
-                <FormHelperText>{helpText}</FormHelperText>
-            )}
-            {!!errors.length && !hideFormFeedback && (
-                <FormHelperText error>{errors.join(',')}</FormHelperText>
-            )}
-        </FormControl>
-
-    );
-};
 
 export interface ValidatedSelectProps extends SelectProps {
     labelId: string,
-    validationErrors?: ValidationErrors | Array<string> | string | undefined | null,
     helpText?: string,
     hideFormFeedback?: boolean,
     required?: boolean,
@@ -215,7 +124,6 @@ export interface ValidatedSelectProps extends SelectProps {
 export const ValidatedSelect = (props: ValidatedSelectProps) => {
     const {
         labelId,
-        validationErrors,
         required,
         label,
         helpText,
@@ -225,18 +133,6 @@ export const ValidatedSelect = (props: ValidatedSelectProps) => {
     } = props;
 
 
-    // Find the errors based on the types we support.
-    let errors: Array<string> = [];
-    if (!validationErrors) {
-        // Errors can stay as an empty array.
-    } else if (typeof validationErrors === 'string') {
-        errors = [validationErrors];
-    } else if (Array.isArray(validationErrors)) {
-        errors = validationErrors;
-    } else {
-        // We have ValidationErrors from Validator.errors()
-        errors = validationErrors[(props.name ? props.name : '')] || [];
-    }
 
     return (
         <FormControl required={required} fullWidth margin={"dense"}>
@@ -251,9 +147,6 @@ export const ValidatedSelect = (props: ValidatedSelectProps) => {
             </Select>
             {!!helpText && (
                 <FormHelperText>{helpText}</FormHelperText>
-            )}
-            {!!errors.length && !hideFormFeedback && (
-                <FormHelperText error>{errors.join(',')}</FormHelperText>
             )}
         </FormControl>
 

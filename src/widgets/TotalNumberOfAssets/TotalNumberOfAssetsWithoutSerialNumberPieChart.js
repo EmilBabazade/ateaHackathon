@@ -5,14 +5,14 @@ import React from 'react';
 import Webix from '../../Webix';
 import PieChart from '../GneralCharts/PieChart';
 
-var dataset = [
+export const TotalNumberOfAssetsWithoutSerialNumberPieChartDataSet = [
     { sales: "56.3", year: "Assets without Serial Number", color: "#C70039" },
     { sales: "43.7", year: "Assets with Serial Number", color: "#36BB40" },
 ];
 
 const TotalNumberOfAssetsWithoutSerialNumberPieChart = () => (
     <div>
-        <PieChart title={"Assets Without Serial Number"} dataset={dataset} />
+        <PieChart title={"Assets Without Serial Number"} dataset={TotalNumberOfAssetsWithoutSerialNumberPieChartDataSet} />
     </div>
 )
 export default TotalNumberOfAssetsWithoutSerialNumberPieChart;

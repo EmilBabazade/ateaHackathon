@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/build/main.js",
+    "src/assets/images/Roboto-Medium-webfont.woff": "/build/src/assets/images/Roboto-Medium-webfont..woff",
+    "src/assets/images/Roboto-Regular-webfont.woff": "/build/src/assets/images/Roboto-Regular-webfont..woff",
+    "src/assets/images/Roboto-Medium-webfont.woff2": "/build/src/assets/images/Roboto-Medium-webfont..woff2",
+    "src/assets/images/Roboto-Regular-webfont.woff2": "/build/src/assets/images/Roboto-Regular-webfont..woff2",
+    "src/assets/images/webixmdi-webfont.woff": "/build/src/assets/images/webixmdi-webfont..woff",
+    "src/assets/images/webixmdi-webfont.woff2": "/build/src/assets/images/webixmdi-webfont..woff2"
+  },
+  "entrypoints": [
+    "/build/main.js"
+  ]
+}

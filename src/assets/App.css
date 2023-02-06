@@ -10,11 +10,6 @@ body {
     height: 80px;
 }
 
-.dashboard-container {
-    display: flex !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-}
 
 .dashboard-section {
     background-color: #fff;
@@ -38,10 +33,6 @@ body {
 }
 
 
-.content-box {
-    display: flex;
-    flex-direction: row;
-}
 
 .menu {
     flex: 0 0 200px;
@@ -78,14 +69,6 @@ body {
 .footer {
     border-top: 2px solid #444;
     padding: 2px 2px;
-}
-
-.chart-area {
-    margin: 5px;
-    width: 500px;
-    height: 450px;
-    box-shadow: none !important;
-    border: 1px solid #e2e2e2;
 }
 
 

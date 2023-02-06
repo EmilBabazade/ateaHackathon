@@ -3,9 +3,9 @@
 
 import React from 'react';
 import Webix from '../../Webix';
-import BarChart from '../GneralCharts/BarChart';
+import BarChart, {barChartOption} from '../GneralCharts/BarChart';
 
-const dataset = [
+export const totalNumberOfAssetsDataset = [
     {
         sales: 3000,
         year: 2019,
@@ -33,7 +33,8 @@ const dataset = [
     }
 ]
 
+
 const TotalNumberOfAssetsBarChart = () => (
-    <BarChart title={"Number of new Users"} dataset={dataset} />
+    <BarChart title={"Number of new Users"} dataset={totalNumberOfAssetsDataset} />
 )
 export default TotalNumberOfAssetsBarChart;

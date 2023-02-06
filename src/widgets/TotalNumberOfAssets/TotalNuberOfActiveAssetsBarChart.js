@@ -6,7 +6,7 @@ import Webix from '../../Webix';
 import BarChart from '../GneralCharts/BarChart';
 import BarChartWithSelection from '../GneralCharts/BarChartWithSelection';
 
-const dataset = [
+export const totalNuberOfActiveAssetsBarDataSet = [
     {
         sales: 1105,
         year: 2019,
@@ -35,6 +35,6 @@ const dataset = [
 ]
 
 const TotalNuberOfActiveAssetsBarChart = () => (
-    <BarChartWithSelection title={"Total Number of Active Assets"} dataset={dataset} />
+    <BarChartWithSelection title={"Total Number of Active Assets"} dataset={totalNuberOfActiveAssetsBarDataSet} />
 )
 export default TotalNuberOfActiveAssetsBarChart;

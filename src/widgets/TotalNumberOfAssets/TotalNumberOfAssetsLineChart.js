@@ -5,7 +5,7 @@ import React from 'react';
 import Webix from '../../Webix';
 import LineChart from '../GneralCharts/LineChart';
 
-const dataset = [
+export const TotalNumberOfAssetsLineDataSet = [
     {
         sales: "3000",
         year: "2007",
@@ -35,7 +35,7 @@ const dataset = [
 
 const TotalNumberOfAssetsLineChart = () => (
     <div>
-        <LineChart title={"Total Number Of Assets"} dataset={dataset} />
+        <LineChart title={"Total Number Of Assets"} dataset={TotalNumberOfAssetsLineDataSet} />
     </div>
 )
 export default TotalNumberOfAssetsLineChart;

@@ -3,17 +3,18 @@
 const path = require("path");
 const WebpackNotifierPlugin = require("webpack-notifier");
 const {WebpackManifestPlugin} = require('webpack-manifest-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
     mode: 'development',
-    entry: "./src/index.js",
+    entry: "./src/index.tsx",
     output: {
         filename: '[name].js',
         assetModuleFilename: 'src/assets/images/[name].[ext]',
         globalObject: 'this',
-        path: path.resolve(__dirname, 'build'),
-        publicPath: '/build/'
+        path: path.resolve('./build'),
+        publicPath: '/'
     },
     /* optimization: {
          runtimeChunk: {
@@ -68,8 +69,17 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
     devtool: "inline-source-map",
+   /* devServer: {
+        publicPath: '/public/',
+        host: '0.0.0.0',
+        open: ['http://locahost:8080'],
+        openPage: 'public/index.html'
+    },*/
     plugins:
         [
+            new HtmlWebpackPlugin({
+                template: './public/index.html'
+            }),
             new WebpackManifestPlugin({
                 fileName: 'asset-manifest.json',
                 generate: (seed, files) => {
