@@ -17,16 +17,16 @@ function chart(title, dataset) {
                 label: "X-axis",
                 value: 1,
                 options: [
-                    { "id": 1, "value": "Year" },
-                    { "id": 2, "value": "Month" },
-                    { "id": 3, "value": "Day" }
+                    {"id": 1, "value": "Year"},
+                    {"id": 2, "value": "Month"},
+                    {"id": 3, "value": "Day"}
                 ]
             },
             {
                 view: "chart",
                 type: "line",
-                width: 600,
-                height: 250,
+                height: 300,
+                width: 470,
                 value: "#sales#",
                 gradient: "falling",
                 color: "#b9a8f9",
@@ -51,9 +51,15 @@ function chart(title, dataset) {
     };
 }
 
-const LineChart = ({ title, dataset }) => (
-    <div>
-        <Webix ui={chart(title, dataset)} />
-    </div>
-)
+const LineChart = ({title, dataset}) => {
+    const options = chart(title, dataset);
+
+    console.log(options);
+
+    return (
+        <div>
+            <Webix ui={options}/>
+        </div>
+    )
+}
 export default LineChart;

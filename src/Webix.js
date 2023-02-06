@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import * as webix from 'webix/webix.js';
+import * as webix from 'webix/webix';
 import 'webix/webix.css';
 
 class Webix extends Component {

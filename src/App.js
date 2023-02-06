@@ -1,20 +1,18 @@
 import React from 'react';
 import {HashRouter as Router, NavLink, Route} from 'react-router-dom';
-
-import Home from './Home';
-import FormView from './FormView';
-import ReactAsView from './ReactAsView';
-import ReduxAppView from './redux/ReduxAppView';
-import {AppBar, Box, CssBaseline, List, ListItem, makeStyles, ThemeProvider, Toolbar} from "@material-ui/core";
+import {AppBar, Box, CssBaseline, Divider, List, ListItem, makeStyles, ThemeProvider, Toolbar} from "@material-ui/core";
 import './assets/App.css';
 import {Layout} from "./components/layout/Layout";
 import {getTheme} from "./components/configuration/themeConfig";
 import {deepOrange, deepPurple, lightGreen} from "@material-ui/core/colors";
 import {Dashboard} from "./components/layout/Dashboard";
+import {ServiceNowForm} from "./components/layout/ServiceNowForm";
 
 
 const App = () => {
     const [darkMode, setDarkMode] = React.useState(false);
+
+    const [selectedDashboard, setSelectedDashBoard] = React.useState()
 
     const theme = React.useMemo(() => getTheme(darkMode), [darkMode, getTheme]);
     const classes = makeStyles((theme) => ({
@@ -45,6 +43,12 @@ const App = () => {
         sidebar: {}
     }));
 
+    const savedDashBoardsTemp = [
+        {label: "All Assets", filter: "Assets"},
+        {label: "Finance", filter: "Finance"},
+        {label: "Contracts", filter: "Contracts"},
+    ];
+
 
     console.log(theme);
 
@@ -71,19 +75,23 @@ const App = () => {
                                         <ListItem>
                                             <NavLink to="/" exact activeClassName='active'>Home</NavLink>
                                         </ListItem>
+                                        {
+                                            savedDashBoardsTemp.map((d, i) => (
+                                                <ListItem key={i}>
+                                                    <NavLink to={`/dashboard/${d.filter}`} activeClassName='active'>{d.label}</NavLink>
+                                                </ListItem>
+                                            ))
+                                        }
+                                        <Divider/>
                                         <ListItem>
-                                            <NavLink to="/webix" activeClassName='active'>Webix Component</NavLink><
-                                            /ListItem>
+                                            <NavLink to="/serviceNow" exact activeClassName='active'>Support</NavLink>
+                                        </ListItem>
                                     </List>
                                     <div className='content'>
                                         <Route exact path="/" component={Dashboard}/>
-                                        <Route path="/webix" component={FormView}/>
-                                        <Route path="/data" component={ReduxAppView}/>
-                                        <Route path="/view" component={ReactAsView}/>
+                                        <Route path="/dashboard/:filter" component={Dashboard}/>
+                                        <Route path="/serviceNow" component={ServiceNowForm}/>
                                     </div>
-                                </div>
-                                <div className='footer'>
-                                    <p>Get more info at <a target='blank' href='http://webix.com'>http://webix.com</a></p>
                                 </div>
                             </Box>
                         </Router>

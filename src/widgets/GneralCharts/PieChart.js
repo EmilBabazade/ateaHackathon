@@ -17,14 +17,14 @@ function chart(title, dataset) {
                 label: "X-axis",
                 value: 1,
                 options: [
-                    { "id": 1, "value": "Year" },
-                    { "id": 2, "value": "Month" },
-                    { "id": 3, "value": "Day" }
+                    {"id": 1, "value": "Year"},
+                    {"id": 2, "value": "Month"},
+                    {"id": 3, "value": "Day"}
                 ]
             },
             {
                 height: 300,
-                width: 800,
+                width: 470,
                 view: "chart",
                 type: "pie",
                 value: "#sales#",
@@ -38,9 +38,9 @@ function chart(title, dataset) {
     };
 }
 
-const PieChart = ({ title, dataset }) => (
+const PieChart = ({title, dataset}) => (
     <div>
-        <Webix ui={chart(title, dataset)} />
+        <Webix ui={chart(title, dataset)}/>
     </div>
 )
 export default PieChart;

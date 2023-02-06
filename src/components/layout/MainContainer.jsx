@@ -1,6 +1,5 @@
 ﻿import * as React from 'react';
 import {Container} from "@material-ui/core";
-import {LoadingIndicator} from "./LoadingIndicator";
 
 // export interface MainContainerProps extends ContainerProps {
 //     fullWidthOnSm?: boolean,
@@ -14,10 +13,9 @@ export const MainContainer = (props) => {
     const {className, children, flex = false, fluid = false, fullWidthOnSm = false, fluidMaxWidth, ...rest} = props;
 
 
-
     const mainContainerStyle = {
-        paddingLeft: {xs: 0, sm: 4},
-        paddingRight: {xs: 0, sm: 4},
+        paddingLeft: {xs: 0, sm: 1},
+        paddingRight: {xs: 0, sm: 1},
         ...fluidMaxWidth ? {maxWidth: fluidMaxWidth} : {},
         ...flex ? {display: "flex", justifyContent: "center"} : {},
     };
@@ -27,9 +25,7 @@ export const MainContainer = (props) => {
                    className={"main-container"}
                    {...rest}
                    sx={mainContainerStyle}>
-            <React.Suspense fallback={<LoadingIndicator/>}>
-                {props.children}
-            </React.Suspense>
+            {props.children}
         </Container>
     );
 };
@@ -40,9 +36,7 @@ export const ViewContainer = (props) => {
 
     return (
         <Container className={"main-container view-container"} sx={{paddingLeft: 4, paddingRight: 4}} {...rest}>
-            <React.Suspense fallback={<LoadingIndicator/>}>
-                {props.children}
-            </React.Suspense>
+            {props.children}
         </Container>
     );
 };

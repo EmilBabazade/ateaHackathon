@@ -1,7 +1,6 @@
 import React from "react";
-import {AppBar, Box, Toolbar} from "@material-ui/core";
-import {Link} from "react-router-dom";
 import {MainContainer} from "./MainContainer";
+import {Box} from "@material-ui/core";
 
 
 const layoutStyle = {
@@ -15,9 +14,9 @@ export function Layout(props) {
     return (
 
         <main className={"app"}>
-            <MainContainer fluid className={"contents"}>
+            <Box fluid className={"contents"}>
                 {children}
-            </MainContainer>
+            </Box>
         </main>
     )
 }
