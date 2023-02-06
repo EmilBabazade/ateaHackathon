@@ -1,5 +1,5 @@
 ﻿import * as React from 'react';
-import {Box, CircularProgress, LinearProgress} from "@material-ui/core";
+import {Box, CircularProgress, LinearProgress} from "@mui/material";
 
 // export interface LoadingIndicatorProps {
 //     className?: string,

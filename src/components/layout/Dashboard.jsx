@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Card, CardContent, makeStyles, Typography} from "@material-ui/core";
+import {Box, Card, CardContent, makeStyles, Typography} from "@mui/material";
 import TotalNumberOfAssetsLineChart from "../../widgets/TotalNumberOfAssets/TotalNumberOfAssetsLineChart";
 import TotalNumberOfAssetsBarChart from "../../widgets/TotalNumberOfAssets/TotalNumberOfAssetsBarChart";
 import TotalNumberOfAssetsPieChart from "../../widgets/TotalNumberOfAssets/TotalNumberOfAssetsPieChart";

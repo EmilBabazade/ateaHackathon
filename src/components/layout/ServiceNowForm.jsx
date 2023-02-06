@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Button, Divider, Grid, makeStyles, TextareaAutosize, TextField, Typography} from "@material-ui/core";
+import {Box, Button, Divider, Grid, makeStyles, TextareaAutosize, TextField, Typography} from "@mui/material";
 import {Email} from "@material-ui/icons";
 
 const params = new Proxy(new URLSearchParams(window.location.search), {

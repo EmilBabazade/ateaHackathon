@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import {Link} from "react-router-dom";
-import {AppBar, Avatar, Box, IconButton, makeStyles, Toolbar, useMediaQuery} from "@material-ui/core";
-import {deepOrange, deepPurple} from "@material-ui/core/colors";
+import {AppBar, Avatar, Box, IconButton, makeStyles, Toolbar, useMediaQuery} from "@mui/material";
+import {deepOrange, deepPurple} from "@mui/material/colors";
 
 const headerStyle = makeStyles(theme => ({
     root: {

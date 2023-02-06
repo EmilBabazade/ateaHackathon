@@ -1,10 +1,10 @@
 import React from 'react';
 import {HashRouter as Router, NavLink, Route} from 'react-router-dom';
-import {AppBar, Box, CssBaseline, Divider, List, ListItem, makeStyles, ThemeProvider, Toolbar} from "@material-ui/core";
+import {AppBar, Box, CssBaseline, Divider, List, ListItem, makeStyles, ThemeProvider, Toolbar} from "@mui/material";
 import './assets/App.css';
 import {Layout} from "./components/layout/Layout";
 import {getTheme} from "./components/configuration/themeConfig";
-import {deepOrange, deepPurple, lightGreen} from "@material-ui/core/colors";
+import {deepOrange, deepPurple, lightGreen} from "@mui/material/colors";
 import {Dashboard} from "./components/layout/Dashboard";
 import {ServiceNowForm} from "./components/layout/ServiceNowForm";
 

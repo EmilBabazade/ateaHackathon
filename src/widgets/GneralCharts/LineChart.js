@@ -17,16 +17,16 @@ export function lineChartOptions(title, dataset) {
                 label: "Year",
                 value: 1,
                 options: [
-                    { "id": 1, "value": "Year" },
-                    { "id": 2, "value": "Month" },
-                    { "id": 3, "value": "Day" }
+                    {"id": 1, "value": "Year"},
+                    {"id": 2, "value": "Month"},
+                    {"id": 3, "value": "Day"}
                 ]
             },
             {
                 view: "chart",
                 type: "line",
-                width: 600,
-                height: 250,
+                height: 300,
+                width: 470,
                 value: "#sales#",
                 gradient: "falling",
                 color: "#b9a8f9",
@@ -51,9 +51,9 @@ export function lineChartOptions(title, dataset) {
     };
 }
 
-const LineChart = ({ title, dataset }) => (
+const LineChart = ({title, dataset}) => (
     <div>
-        <Webix ui={lineChartOptions(title, dataset)} />
+        <Webix ui={lineChartOptions(title, dataset)}/>
     </div>
 )
 export default LineChart;
