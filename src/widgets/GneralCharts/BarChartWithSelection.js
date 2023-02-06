@@ -4,7 +4,7 @@
 import React from 'react';
 import Webix from '../../Webix';
 
-export function barChartOption(title, dataset) {
+export function barChartOptionWithSelection(title, dataset) {
     return {
         rows: [
             {
@@ -23,6 +23,17 @@ export function barChartOption(title, dataset) {
                 ]
             },
             {
+                view: "select",
+                label: "Status",
+                value: 1,
+                options: [
+                    { "id": 1, "value": "Status Active" },
+                    { "id": 2, "value": "Status Inactive" },
+                    { "id": 3, "value": "Stolen" },
+                    { "id": 4, "value": "Re-Sold" }
+                ]
+            },
+            {
                 view: "chart",
                 width: 900,
                 height: 250,
@@ -35,13 +46,13 @@ export function barChartOption(title, dataset) {
                 },
                 yAxis: {
                     start: 0,
-                    step: 1000,
-                    end: 8000
+                    step: 500,
+                    end: 2500
                 },
                 series: [
                     {
                         value: "#sales#",
-                        color: "#58dccd",
+                        color: "#367CBB",
                         tooltip: {
                             template: "#sales#"
                         }
@@ -53,9 +64,9 @@ export function barChartOption(title, dataset) {
     };
 }
 
-const BarChart = ({ title, dataset }) => (
+const BarChartWithSelection = ({ title, dataset }) => (
     <div>
-        <Webix ui={barChartOption(title, dataset)} />
+        <Webix ui={barChartOptionWithSelection(title, dataset)} />
     </div>
 )
-export default BarChart;
+export default BarChartWithSelection;

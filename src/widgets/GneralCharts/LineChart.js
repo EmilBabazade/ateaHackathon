@@ -14,7 +14,7 @@ export function lineChartOptions(title, dataset) {
             },
             {
                 view: "select",
-                label: "X-axis",
+                label: "Year",
                 value: 1,
                 options: [
                     { "id": 1, "value": "Year" },

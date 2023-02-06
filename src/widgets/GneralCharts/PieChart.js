@@ -13,16 +13,6 @@ export function pieChartOption(title, dataset) {
                 type: "header",
             },
             {
-                view: "select",
-                label: "X-axis",
-                value: 1,
-                options: [
-                    { "id": 1, "value": "Year" },
-                    { "id": 2, "value": "Month" },
-                    { "id": 3, "value": "Day" }
-                ]
-            },
-            {
                 height: 300,
                 width: 800,
                 view: "chart",

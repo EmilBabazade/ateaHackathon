@@ -4,36 +4,37 @@
 import React from 'react';
 import Webix from '../../Webix';
 import BarChart from '../GneralCharts/BarChart';
+import BarChartWithSelection from '../GneralCharts/BarChartWithSelection';
 
 const dataset = [
     {
-        sales: 3000,
+        sales: 1105,
         year: 2019,
         _id: "01"
     },
     {
-        sales: 5000,
+        sales: 844,
         year: 2020,
         _id: "11"
     },
     {
-        sales: 5600,
+        sales: 1584,
         year: 2021,
         _id: "21"
     },
     {
-        sales: 7320,
+        sales: 2320,
         year: 2022,
         _id: "31"
     },
     {
-        sales: 2003,
+        sales: 903,
         year: 2023,
         _id: "41"
     }
 ]
 
-const TotalNumberOfAssetsBarChart = () => (
-    <BarChart title={"Number of new Users"} dataset={dataset} />
+const TotalNuberOfActiveAssetsBarChart = () => (
+    <BarChartWithSelection title={"Total Number of Active Assets"} dataset={dataset} />
 )
-export default TotalNumberOfAssetsBarChart;
+export default TotalNuberOfActiveAssetsBarChart;

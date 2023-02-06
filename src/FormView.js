@@ -6,6 +6,8 @@ import Webix from './Webix';
 import TotalNumberOfAssetsLineChart from './widgets/TotalNumberOfAssets/TotalNumberOfAssetsLineChart';
 import TotalNumberOfAssetsBarChart from './widgets/TotalNumberOfAssets/TotalNumberOfAssetsBarChart';
 import TotalNumberOfAssetsPieChart from './widgets/TotalNumberOfAssets/TotalNumberOfAssetsPieChart';
+import TotalNuberOfActiveAssetsBarChart from './widgets/TotalNumberOfAssets/TotalNuberOfActiveAssetsBarChart';
+import TotalNumberOfAssetsWithoutSerialNumberPieChart from './widgets/TotalNumberOfAssets/TotalNumberOfAssetsWithoutSerialNumberPieChart';
 
 function getForm(save) {
   return {
@@ -33,6 +35,8 @@ const FormView = ({ data, save }) => (
     <TotalNumberOfAssetsLineChart />
     <TotalNumberOfAssetsBarChart />
     <TotalNumberOfAssetsPieChart />
+    <TotalNuberOfActiveAssetsBarChart />
+    <TotalNumberOfAssetsWithoutSerialNumberPieChart />
   </div>
 )
 export default FormView;
